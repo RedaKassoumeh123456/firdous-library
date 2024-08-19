@@ -1,4 +1,5 @@
 import "@/assets/styles/global.css";
+import NavBar from "@/components/NavBar";
 
 import { Alexandria } from "next/font/google";
 
@@ -9,8 +10,12 @@ const alexandria = Alexandria({
 
 const MainLayout = ({ children }) => {
   return (
-    <html lang="ar">
-      <body className={alexandria.className}>{children}</body>
+    <html lang="ar" dir="rtl">
+      <body className={alexandria.className} lang="ar">
+        <NavBar /> 
+        <main>{children}</main>
+        
+      </body>
     </html>
   );
 };
