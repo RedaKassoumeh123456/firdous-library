@@ -7,12 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
+      colors:{
+        primary:'#9a0d51',
+        secondary:'#223d52',
+      },
+      // display:["ylmlmhover"],
     },
-    colors:{
-      primary:'#9a0d51',
-      secondary:'#223d52',
-    }
   },
   plugins: [],
 };
