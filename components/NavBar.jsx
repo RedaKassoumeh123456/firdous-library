@@ -1,9 +1,11 @@
 "use client"
 import Link from "next/link"
 import { useState } from "react"
-
+import { usePathname } from "next/navigation"
 const NavBar = () => {
     const [isMobileMenuOpen,setIsMobileMenuOpen] = useState(false);
+
+    const pathName = usePathname();
     return (
         <nav className='bg-white shadow-sm shadow-primary rounded-b-[5px] pr-1 h-16 w-full flex justify-between md:justify-start gap-4 relative'>
             {/* links */}
@@ -12,13 +14,13 @@ const NavBar = () => {
                 <span className="text-secondary text-lg">مكتبة الفردوس</span>
             </div>
             <div className='hidden md:flex links items-center justify-start h-full gap-4'>
-                <span className="text-primary hover:text-secondary text-lg transition-colors h-full">
+                <span className={ `text-primary hover:text-secondary text-lg transition-colors h-full `}>
                     <Link href="/" className="h-full flex items-center">الكتب</Link>
                 </span>
-                <span className="text-primary hover:text-secondary text-lg transition-colors h-full">
+                <span className={`text-primary hover:text-secondary text-lg transition-colors h-full`}>
                     <Link href="/" className="h-full flex items-center">من نحن</Link>
                 </span>
-                <span className="text-primary hover:text-secondary text-lg transition-colors h-full">
+                <span className={`text-primary hover:text-secondary text-lg transition-colors h-full`}>
                     <Link href="/" className="h-full flex items-center">تواصل معنا</Link>
                 </span>
             </div>
