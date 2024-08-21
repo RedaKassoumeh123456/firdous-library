@@ -50,13 +50,13 @@ const NavBar = () => {
                 </svg>
             </button>
             <div className={`${isMobileMenuOpen?"flex-col":"hidden"} p-4 pt-0 justify-start gap-4 absolute top-16 -right-[0.25px] w-screen bg-primary bg-opacity-80 `}>
-                <span className={`${pathName == "/"?" hidden ":""}text-secondary text-lg w-full `}>
+                <span className={`text-secondary text-lg w-full `}>
                     <Link href="/" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50">الكتب</Link>
                 </span>
-                <span className={`${pathName == "/about"?" hidden ":""}text-secondary text-lg w-full `}>
+                <span className={`text-secondary text-lg w-full `}>
                     <Link href="/about" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50">من نحن</Link>
                 </span>
-                <span className={`${pathName == "/contact"?" hidden ":""}text-secondary text-lg w-full `}>
+                <span className={`text-secondary text-lg w-full `}>
                     <Link href="/contact" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50"> تواصل معنا</Link>
                 </span>
             </div>
