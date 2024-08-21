@@ -25,7 +25,7 @@ const NavBar = () => {
             <button
                 type="button"
                 id="mobile-dropdown-button"
-                className={` ml-2 relative px-4 inline-flex md:hidden items-center justify-center rounded-md p-2 text-gray-400 ${isMobileMenuOpen?"border-2 border-black":""}   `}
+                className={` ml-2 relative px-4 inline-flex md:hidden items-center justify-center rounded-md p-2 text-gray-400 border-2  ${isMobileMenuOpen?" border-black":"border-white"}   `}
                 aria-controls="mobile-menu"
                 aria-expanded="false"
                 onClick = {() => setIsMobileMenuOpen((prev)=>!prev)}
@@ -47,15 +47,15 @@ const NavBar = () => {
                     />
                 </svg>
             </button>
-            <div className='flex-col md:hidden p-4 justify-start gap-4 absolute top-16 -right-[0.25px] w-screen bg-secondary'>
-                <span className="text-primary hover:text-secondary text-lg transition-colors h-full">
-                    <Link href="/" className="h-full flex items-center">الكتب</Link>
+            <div className={`${isMobileMenuOpen?"flex-col":"hidden"} p-4 pt-0 justify-start gap-4 absolute top-16 -right-[0.25px] w-screen bg-primary bg-opacity-80 `}>
+                <span className="text-secondary text-lg w-full ">
+                    <Link href="/" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50">الكتب</Link>
                 </span>
-                <span className="text-primary hover:text-secondary text-lg transition-colors h-full">
-                    <Link href="/" className="h-full flex items-center">من نحن</Link>
+                <span className="text-secondary text-lg w-full">
+                    <Link href="/" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50">من نحن</Link>
                 </span>
-                <span className="text-primary hover:text-secondary text-lg transition-colors h-full">
-                    <Link href="/" className="h-full flex items-center">تواصل معنا</Link>
+                <span className="text-secondary text-lg w-full">
+                    <Link href="/" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50"> تواصل معنا</Link>
                 </span>
             </div>
         </nav>
