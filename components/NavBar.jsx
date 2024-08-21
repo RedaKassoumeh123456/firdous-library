@@ -18,10 +18,10 @@ const NavBar = () => {
                     <Link href="/" className="h-full flex items-center">الكتب</Link>
                 </span>
                 <span className={` ${pathName === "/about"? "font-bold bg-secondary bg-opacity-70":"hover:text-secondary"} p-3 text-primary  text-lg transition-colors h-full `}>
-                    <Link href="/" className="h-full flex items-center">من نحن</Link>
+                    <Link href="/about" className="h-full flex items-center">من نحن</Link>
                 </span>
                 <span className={` ${pathName === "/contact"? "font-bold bg-secondary bg-opacity-70":"hover:text-secondary"} p-3 text-primary  text-lg transition-colors h-full `}>
-                    <Link href="/" className="h-full flex items-center">تواصل معنا</Link>
+                    <Link href="/contact" className="h-full flex items-center">تواصل معنا</Link>
                 </span>
             </div>
             <button
@@ -54,10 +54,10 @@ const NavBar = () => {
                     <Link href="/" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50">الكتب</Link>
                 </span>
                 <span className={`${pathName == "/about"?" hidden ":""}text-secondary text-lg w-full `}>
-                    <Link href="/" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50">من نحن</Link>
+                    <Link href="/about" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50">من نحن</Link>
                 </span>
                 <span className={`${pathName == "/contact"?" hidden ":""}text-secondary text-lg w-full `}>
-                    <Link href="/" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50"> تواصل معنا</Link>
+                    <Link href="/contact" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50"> تواصل معنا</Link>
                 </span>
             </div>
         </nav>
