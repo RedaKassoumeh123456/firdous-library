@@ -7,7 +7,7 @@ const NavBar = () => {
 
     const pathName = usePathname();
     return (
-        <nav className='bg-white shadow-sm shadow-primary rounded-b-[5px] pr-1 h-16 w-full flex justify-between md:justify-start gap-4 relative'>
+        <nav className='bg-white shadow-sm shadow-primary rounded-b-[5px] pr-1 h-16 w-full flex justify-between md:justify-start gap-4 relative '>
             {/* links */}
             <div className="logo h-full flex items-center gap-2">
                 <img src="https://placeholder.com/250x250" className="h-full p-3 pl-0"  alt="" />
@@ -49,14 +49,14 @@ const NavBar = () => {
                     />
                 </svg>
             </button>
-            <div className={`${isMobileMenuOpen?"flex-col":"hidden"} p-4 pt-0 justify-start gap-4 absolute top-16 -right-[0.25px] w-screen bg-primary bg-opacity-80 `}>
-                <span className={`text-secondary text-lg w-full `}>
-                    <Link href="/" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50">الكتب</Link>
+            <div className={`${isMobileMenuOpen?"flex-col":"hidden"} p-4 pt-0 justify-start gap-4 absolute top-16 -right-[0.25px] w-screen bg-primary transition-all`}>
+                <span className={`text-gray-300 text-lg w-full `}>
+                    <Link href="/" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50 transition">الكتب</Link>
                 </span>
-                <span className={`text-secondary text-lg w-full `}>
+                <span className={`text-gray-300 text-lg w-full `}>
                     <Link href="/about" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50">من نحن</Link>
                 </span>
-                <span className={`text-secondary text-lg w-full `}>
+                <span className={`text-gray-300 text-lg w-full `}>
                     <Link href="/contact" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50"> تواصل معنا</Link>
                 </span>
             </div>
