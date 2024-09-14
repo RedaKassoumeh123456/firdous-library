@@ -5,8 +5,15 @@ import { Alexandria } from "next/font/google";
 
 const alexandria = Alexandria({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin", "arabic"],
+  // subsets: ["latin","arabic"],
+  subsets:["latin"],
 });
+
+export const metadata ={
+  title:'مكتبة الفردوس',
+  description:"مكتبة جامع الفردوس",
+  keywords:'مكتبة ,فردوس ,جامع الفردوس',
+};
 
 const MainLayout = ({ children }) => {
   return (
