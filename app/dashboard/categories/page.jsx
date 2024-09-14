@@ -7,7 +7,7 @@ const CategoriesPage = async () => {
     await connectDB();
 
     const categories = await Category.find();
-
+    // console.log(categories)
     return (
         <section className="p-6 md:p-10 h-[67.5vh]">
             <div className="bg-gray-200 p-5 mx-auto w-full max-w-[800px]">
@@ -16,7 +16,7 @@ const CategoriesPage = async () => {
                     <Link href='/dashboard/categories/add' className="bg-secondary hover:bg-opacity-85 transition flex px-4 pt-2 pb-1 w-fit rounded-xl text-gray-300 font-bold">إضافة<span className="mr-1 text-2xl mt-[-5px] font-semibold">+</span></Link>
                 </div>
                 <div className="">
-                    {categories ? categories.map((category)=>(
+                    {categories.length > 0 ? categories.map((category)=>(
                         <div key={category._id} className="flex justify-between items-center p-2 border-b border-gray-400 hover:bg-gray-300">
                             <h1 className="text-secondary text-xl">{category.name}</h1>
                             <div className="flex">
@@ -26,7 +26,7 @@ const CategoriesPage = async () => {
                             </div>
                         </div>
                     )):(
-                        <h1>لا يوجد تصنيفات</h1>
+                        <h1 className="text-2xl text-secondary block p-3 mx-auto text-center">لا يوجد تصنيفات</h1>
                     )}
                 </div>
             </div>
