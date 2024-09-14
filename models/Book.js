@@ -17,17 +17,15 @@ const BookSchema = new Schema(
         },
         description:{
             type:String,
-            required:true,
         },
         summary:{
             type:String,
-            required:true,
         },
         available:{
             type:Boolean,
             default:true,
         },
-        owner: {
+        category: {
             type: Schema.Types.ObjectId,
             ref: 'Category',
         },

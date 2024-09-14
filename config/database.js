@@ -12,7 +12,7 @@ const connectDB = async () =>{
     }
     // Connect to MongoDB
     try{
-        console.log(process.env.MONGODB_URI)
+        // console.log(process.env.MONGODB_URI)
         await mongoose.connect(process.env.MONGODB_URI);
         connected=true;
         console.log('MongoDB connected...');
