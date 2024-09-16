@@ -1,7 +1,7 @@
 import "@/assets/styles/global.css";
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Alexandria } from "next/font/google";
+import MainNavBar from "@/components/MainNavBar";
 
 const alexandria = Alexandria({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -16,10 +16,12 @@ export const metadata ={
 };
 
 const MainLayout = ({ children }) => {
+
+
   return (
     <html lang="ar" dir="rtl">
       <body className={alexandria.className} lang="ar">
-        <NavBar /> 
+        <MainNavBar /> 
         <main>{children}</main>
         <Footer/>
       </body>

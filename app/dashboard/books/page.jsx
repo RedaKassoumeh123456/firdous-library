@@ -17,9 +17,10 @@ const BooksPage = async () => {
                 </div>
                 <div className="">
                     {books.length > 0 ? books.map((book)=>(
-                        <div key={book._id} className="flex justify-between items-center p-2 border-b border-gray-400 hover:bg-gray-300">
-                            <h1 className="text-secondary text-xl">{book.bookName}</h1>
-                            <div className="flex">
+                        <div key={book._id} href={`/dashboard/books/${book._id}`} className="flex flex-col md:flex-row justify-between items-center p-2 border-b border-gray-400 hover:bg-gray-300">
+                            <h1 className="text-secondary text-xl ml-auto">{book.bookName}</h1>
+                            <div className="flex mt-3 md:mt-0 mr-auto">
+                                <Link href={`/dashboard/books/${book._id}`} className="block py-2 px-4 bg-gray-700 rounded-md ml-3 text-gray-200 hover:bg-opacity-85"> تفاصيل</Link>
                                 <Link href={`/dashboard/books/edit/${book._id}`} className="block py-2 px-4 bg-secondary rounded-md ml-3 text-gray-200 hover:bg-opacity-85"> تعديل</Link>
                                 {/* {const categoryId = cat._id.toString()} */}
                                 <DeleteBookButton bookId={JSON.parse(JSON.stringify(book._id))}/>
