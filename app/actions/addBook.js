@@ -15,6 +15,7 @@ async function addBook(formData){
         authorName:formData.get('authorName'),
         description:formData.get('description'),
         summary:formData.get('summary'),
+        category:formData.get('category'),
     }
     
     const available = formData.get('available') == 'true'?true:false;
@@ -22,11 +23,6 @@ async function addBook(formData){
 
     bookData.available = available;
 
-    const category = formData.get('category') === '0' ? 'undefined' :formData.get('category');
-
-    if (category !== 'undefined'){
-        bookData.category=category;
-    }
 
     const newBook = new Book(bookData);
 

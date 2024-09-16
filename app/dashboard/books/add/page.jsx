@@ -10,6 +10,9 @@ const AddBookPage = async () => {
 
     const categories = await Category.find();
 
+
+    // const categories=[];
+
     // console.log(categories);
 
     return (
@@ -41,7 +44,6 @@ const AddBookPage = async () => {
                             defaultValue="0"
                             className="p-3 bg-gray-100 rounded-xl w-full text-gray-800 focus:outline-none border border-primary shadow-primary text-md mt-3"
                         >
-                            <option id="0" value="0" >غير مصنف</option>
                             {categories.length > 0 && categories.map((category)=>(
                                 <option  key={JSON.parse(JSON.stringify(category._id))} value={JSON.parse(JSON.stringify(category._id))} >{category.name}</option>
                             ))}

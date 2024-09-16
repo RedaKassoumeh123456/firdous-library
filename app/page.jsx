@@ -1,9 +1,23 @@
-import books from '@/books.json'
+
+// import books from '@/books.json'
 import BookCard from '@/components/BookCard';
+import Book from '@/models/Book';
+import connectDB from '@/config/database';
+import '@/models/Category'
 
+const MainPage = async () => {
 
-const MainPage = () => {
-  console.log(books)
+  await connectDB();
+
+  const books = await Book.find();
+  // books.map((book)=>{
+  //   if (book.category)return book.populate('category','name');
+  // })
+
+  // books.map((book)=>{
+  //   if (book.category)console.log(book.category.name);
+  // })
+
   return (
     <>
       {/* Search Boxes */}
@@ -22,7 +36,7 @@ const MainPage = () => {
         {
           books.map((book)=>{
             return (
-              <BookCard key={book._id} book={book} />
+              <BookCard key={book._id} bookId={book._id} />
             )
           })
         }

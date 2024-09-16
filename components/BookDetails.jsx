@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import connectDB from '@/config/database'
 import Book from '@/models/Book'
-
+import '@/models/Category'
 const BookDetails = async ({bookId}) => {
     await connectDB();
 
@@ -11,7 +11,7 @@ const BookDetails = async ({bookId}) => {
     const currentBook = await Book.findById(bookId);
 
     if (currentBook.category){
-        book = await Book.findById(bookId).populate('category','name');
+        book = await Book.findById(bookId).populate('category','name')
         category = book.category.name;
     }else {
         category= 'غير مصنف';

@@ -8,6 +8,6 @@ const CategorySchema = new Schema({
 },{
     timestamps:true,
 });
-
+// console.log(models.Category)
 if (!models.Category) model('Category',CategorySchema);
-export default models.Category;
+export default models.Category || model('Category',CategorySchema);
