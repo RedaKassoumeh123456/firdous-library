@@ -1,14 +1,29 @@
 import Link from "next/link"
 import Book from "@/models/Book"
+import Category from "@/models/Category"
 import connectDB from "@/config/database"
 import DeleteBookButton from "@/components/DeleteBookButton"
-const BooksPage = async () => {
+import AdminPagePagination from "@/components/AdminPagePagination"
+import AdminBookSearchForm from "@/components/AdminBookSearchForm"
+
+const BooksPage = async ({searchParams:{page=1,pageSize=5}}) => {
 
     await connectDB();
 
-    const books = await Book.find();
+    const categories = await Category.find();
+
+    const skip = (page-1)*pageSize;
+    const total = await Book.countDocuments({});
+
+    const books = await Book.find().skip(skip).limit(pageSize).lean();
+
+    const showPagination = total > pageSize;
+
+
     // console.log(categories)
     return (
+        <>
+        <AdminBookSearchForm categories={JSON.parse(JSON.stringify(categories))}/>
         <section className="p-6 md:p-10 h-[67.5vh]">
             <div className="bg-gray-200 p-5 mx-auto w-full max-w-[800px]">
                 <div className="flex justify-between items-center border-b border-black pb-3">
@@ -32,6 +47,10 @@ const BooksPage = async () => {
                 </div>
             </div>
         </section>
+        {showPagination &&(
+            <AdminPagePagination page={parseInt(page)} pageSize={parseInt(pageSize)} totalItems={total}/>
+        )}
+        </>
     )
 }
 
