@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { usePathname } from "next/navigation"
+import SignOutButton from "./SignOutButton"
 const AdminNavBar = () => {
     const [isMobileMenuOpen,setIsMobileMenuOpen] = useState(false);
 
@@ -23,6 +24,7 @@ const AdminNavBar = () => {
                 <span className={` ${pathName === "/"? "font-bold bg-secondary bg-opacity-70":"hover:text-secondary"} p-3 text-primary  text-lg transition-colors h-full `}>
                     <Link href="/" className="h-full flex items-center"> صفحة المستخدم</Link>
                 </span>
+                <SignOutButton />
             </div>
             <button
                 type="button"
@@ -59,6 +61,7 @@ const AdminNavBar = () => {
                 <span className={`text-gray-300 text-lg w-full `}>
                     <Link href="/" className="h-full flex items-center p-2 border-b-white border-b-[1px] border-opacity-50">صفحة المستخدم</Link>
                 </span>
+                <SignOutButton />
             </div>
         </nav>
     )

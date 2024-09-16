@@ -16,33 +16,32 @@ export const {
         CredentialsProvider({
             name:'Credentials',
             async authorize(credentials,req){
+                console.log('credentials is ')
+                console.log(credentials)
                 if (credentials === null)return null;
-                try{
                     const Admin = {
                         email:'admin1@gmail.com',
                         password:'admin@123admin',
                     }
                     
-                    if (credentials.email ===email && credentials.password === password){
+                    if (credentials.email == Admin.email && credentials.password == Admin.password){
                         return Admin;
                     }else {
-                        redirect(`/login`);
+                        redirect(`/sign-in`);
                     }
 
-                    if (user){
-                        const isMatch = user?.password === credentials?.password;
+                    // if (user){
+                    //     const isMatch = user?.password === credentials?.password;
 
-                        if(isMatch){
-                            return user;
-                        }else {
-                            throw new Error('Check your password')
-                        }
-                    } else {
-                        throw new Error("User not found")
-                    }
-                }catch (error){
-                    throw new Error(error)
-                }
+                    //     if(isMatch){
+                    //         return user;
+                    //     }else {
+                    //         throw new Error('Check your password')
+                    //     }
+                    // } else {
+                    //     throw new Error("User not found")
+                    // }
+                
             }
         })
     ],

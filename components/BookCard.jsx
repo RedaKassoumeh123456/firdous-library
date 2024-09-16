@@ -17,7 +17,7 @@ const BookCard = async ({book}) => {
 
 
     return (
-        <Link href="/" className="flex flex-col p-5 shadow-secondary shadow-md bg-gray-200 rounded-lg h-full w-[300px] sm:w-[270px] md:w-[300px] mx-auto">
+        <Link href={`/books/${book._id}`} className="flex flex-col p-5 shadow-secondary shadow-md bg-gray-200 rounded-lg h-full w-[300px] sm:w-[270px] md:w-[300px] mx-auto">
             <Image
                 src={imgUrl}
                 alt=""

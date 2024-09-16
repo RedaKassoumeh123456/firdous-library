@@ -1,22 +1,17 @@
 import Image from 'next/image'
 import connectDB from '@/config/database'
 import Book from '@/models/Book'
-import '@/models/Category'
+import Category from '@/models/Category'
 const BookDetails = async ({bookId}) => {
     await connectDB();
 
     let book;
     let category;
 
-    const currentBook = await Book.findById(bookId);
 
-    if (currentBook.category){
-        book = await Book.findById(bookId).populate('category','name')
-        category = book.category.name;
-    }else {
-        category= 'غير مصنف';
-        book = await Book.findById(bookId);
-    }
+    book = await Book.findById(bookId).populate('category','name');
+    console.log(book);
+    category = book.category.name;
     
     let imgUrl =(book.img ? book.img : '/images/default.jpeg');
 
