@@ -1,6 +1,10 @@
 import NextAuth from'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { redirect } from 'next/navigation';
+import { redirectToSignIn } from '@/app/actions/signInAction';
+function goToSignIn () {
+    redirectToSignIn();
+}
 
 
 export const {
@@ -15,20 +19,45 @@ export const {
     providers:[
         CredentialsProvider({
             name:'Credentials',
+            credentials: {
+                email: {},
+                password: {},
+            },
             async authorize(credentials,req){
-                console.log('credentials is ')
-                console.log(credentials)
-                if (credentials === null)return null;
-                    const Admin = {
+                // throw new Error('hello world')
+                // console.log('credentials is ')
+                // console.log(credentials)
+                // console.log(credentials.email)
+                // console.log(credentials.password)
+                // console.log(req)
+                if (credentials == null)return null;
+                    
+                    const user = {
+                        email:credentials.email,
+                        password:credentials.password,
+                    }
+                    return user;
+                    /*const Admin = {
                         email:'admin1@gmail.com',
                         password:'admin@123admin',
-                    }
-                    
-                    if (credentials.email == Admin.email && credentials.password == Admin.password){
+                    }*/
+
+                    /*if (credentials.email === Admin.email && credentials.password === Admin.password){
+                        console.log('hello world ')
                         return Admin;
                     }else {
-                        redirect(`/sign-in`);
-                    }
+                        
+                        // console.log('hello no world')
+                        return user;
+                        // throw new Error("User not found")
+                        // throw new Error('user not correct')
+                        // goToSignIn();
+                        // throw new Error('Uncorrect ')
+                        // // return null;
+                        // redirect(`/sign-in?err=true`);
+                        // return null;
+                    }*/
+                    
 
                     // if (user){
                     //     const isMatch = user?.password === credentials?.password;
@@ -39,15 +68,28 @@ export const {
                     //         throw new Error('Check your password')
                     //     }
                     // } else {
-                    //     throw new Error("User not found")
                     // }
                 
             }
         })
     ],
     callbacks:{
+        async signIn({ user, account, profile, email, credentials }) {
+            console.log('sign-in hello');
+            const Admin = {
+                email:'admin1@gmail.com',
+                password:'admin@123admin',
+            }
+            if (user.email === Admin.email && user.password === Admin.password){
+                return true;
+            }else return '/sign-in?err=true';
+        },
         async session({session}){
             return session;
+        },
+        async redirect({ url, baseUrl }) {
+            if (url === '/sign-in?err=true')return '/sign-in?err=true';
+            else return '/dashboard/books'
         },
     }
 })

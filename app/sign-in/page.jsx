@@ -4,7 +4,7 @@ import { doCredentialLogin } from "../actions/signInAction"
 import { doLogout } from "../actions/signInAction"
 import { useRouter } from "next/navigation";
 
-const SignInPage = () => {
+const SignInPage = ({searchParams:{err=false}}) => {
     const router = useRouter();
 
     async function handleFormSubmit (event){
@@ -14,14 +14,15 @@ const SignInPage = () => {
 
             const response = await doCredentialLogin(formData);
 
-            console.log('response is ' + response);
+            // console.log('response is ' + response);
 
             if (!!response){
-                console.log('correct login')
+                // console.log('correct login')
                 router.push('/dashboard/books')
             }else {
-                console.log(response.error)
-                router.push('/sign-in');
+                // console.log(response.error)
+                // console.log('hello sss');
+                router.push('/sign-in?err=true');
             }
 
         
@@ -39,6 +40,9 @@ const SignInPage = () => {
                         <label htmlFor="password" className="text-lg text-secondary w-full"> كلمة المرور ( <span className="text-primary">password</span> ) : </label>
                         <input type="password" name="password" id="password" className="p-3 bg-gray-100 rounded-2xl w-full text-gray-800 focus:outline-none border border-primary shadow-primary text-md mt-3" required/>
                     </div>
+                    {err && (
+                        <h1 className="px-4 text-sm text-primary bg-secondary bg-opacity-40 mx-3 py-3 rounded-lg">يوجد خطأ في الإدخال يرجى إعادة المحاولة</h1>
+                    )}
                     <button type="submit" className="w-[200px] text-center block mx-auto bg-secondary p-2 rounded-full text-gray-50 hover:bg-opacity-80 mt-4">
                         تسجيل دخول
                     </button>
