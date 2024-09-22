@@ -13,7 +13,7 @@ const DeleteBookButton = ({bookId}) => {
 
     }
     return (
-        <button onClick={()=>handleDeleteBook(bookId)} className="py-2 px-3 text-center bg-primary text-gray-200 rounded-md hover:bg-opacity-85 transition w-fit">حذف</button>
+        <button onClick={()=>handleDeleteBook(bookId)} className="py-2 px-3 text-center bg-primary text-gray-200 rounded-md hover:bg-opacity-85 transition w-full">حذف</button>
     )
 }
 

@@ -24,7 +24,7 @@ const BooksPage = async ({searchParams:{page=1,pageSize=5}}) => {
     return (
         <>
         <AdminBookSearchForm categories={JSON.parse(JSON.stringify(categories))}/>
-        <section className="p-6 md:p-10 h-[67.5vh]">
+        <section className="p-6 md:p-10 min-h-[67.5vh]">
             <div className="bg-gray-200 p-5 mx-auto w-full max-w-[800px]">
                 <div className="flex justify-between items-center border-b border-black pb-3">
                     <h1 className="text-2xl text-primary ">الكتب :</h1>

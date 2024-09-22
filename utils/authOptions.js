@@ -75,21 +75,25 @@ export const {
     ],
     callbacks:{
         async signIn({ user, account, profile, email, credentials }) {
-            console.log('sign-in hello');
+            // console.log('sign-in hello');
             const Admin = {
                 email:'admin1@gmail.com',
                 password:'admin@123admin',
             }
             if (user.email === Admin.email && user.password === Admin.password){
+                // console.log('hello correct sign-in');
                 return true;
-            }else return '/sign-in?err=true';
+            }else return '/sign-in?err=yes';
         },
         async session({session}){
             return session;
         },
-        async redirect({ url, baseUrl }) {
-            if (url === '/sign-in?err=true')return '/sign-in?err=true';
-            else return '/dashboard/books'
-        },
+        // async redirect({ url, baseUrl }) {
+        //     console.log('hello redirect'+url)
+        //     if (url == '/sign-in' || url == '/sign-in?err=true'){
+        //         // redirect('/sign-in?err=true')
+        //         return '/sign-in?err=true';
+        //     }else return url;
+        // },
     }
 })

@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 const SignInPage = ({searchParams:{err=false}}) => {
     const router = useRouter();
 
+    
+
     async function handleFormSubmit (event){
         event.preventDefault();
 
@@ -16,14 +18,8 @@ const SignInPage = ({searchParams:{err=false}}) => {
 
             // console.log('response is ' + response);
 
-            if (!!response){
-                // console.log('correct login')
-                router.push('/dashboard/books')
-            }else {
-                // console.log(response.error)
-                // console.log('hello sss');
-                router.push('/sign-in?err=true');
-            }
+            if (!response.includes('/sign-in?err=yes'))router.push('/dashboard/books')
+            else router.push('/sign-in?err=true');
 
         
     }

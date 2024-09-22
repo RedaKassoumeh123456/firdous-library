@@ -70,7 +70,7 @@ const AdminSearchResultPage = async ({searchParams:{name,bookType,page=1,pageSiz
                 <div className="bg-gray-200 p-5 mx-auto w-full max-w-[800px]">
                     <div className="flex justify-between items-center border-b border-black pb-3">
                         <h1 className="text-2xl text-primary ">الكتب :</h1>
-                        <Link href='/dashboard/books/add' className="bg-secondary hover:bg-opacity-85 transition flex px-4 pt-2 pb-1 w-fit rounded-xl text-gray-300 font-bold">إضافة<span className="mr-1 text-2xl mt-[-5px] font-semibold">+</span></Link>
+                        {/* <Link href='/dashboard/books/add' className="bg-secondary hover:bg-opacity-85 transition flex px-4 pt-2 pb-1 w-fit rounded-xl text-gray-300 font-bold">إضافة<span className="mr-1 text-2xl mt-[-5px] font-semibold">+</span></Link> */}
                     </div>
                     <div className="">
                         {books.length > 0 ? books.map((book)=>(

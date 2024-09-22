@@ -34,10 +34,12 @@ async function addBook(formData){
         const file = formData.get("img");
         const arrayBuffer = await file.arrayBuffer();
         const buffer = new Uint8Array(arrayBuffer);
-        console.log('helloooo')
-        await fs.writeFile(`./public/images/${newBook._id}`,buffer)
+        // console.log('helloooo')
+        console.log(file);
+        const fileExt=file.type.slice(6);
+        await fs.writeFile(`./public/images/${newBook._id}.${fileExt}`,buffer)
         
-        newBook.img=`/images/${newBook._id}`;
+        newBook.img=`/images/${newBook._id}.${fileExt}`;
     }else newBook.img=null;
 
     await newBook.save();
