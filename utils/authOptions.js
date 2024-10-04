@@ -1,48 +1,47 @@
-import NextAuth from'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials';
-import { redirect } from 'next/navigation';
-import { redirectToSignIn } from '@/app/actions/signInAction';
-function goToSignIn () {
+import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { redirect } from "next/navigation";
+import { redirectToSignIn } from "@/app/actions/signInAction";
+function goToSignIn() {
     redirectToSignIn();
 }
 
-
 export const {
-    handlers ={GET,POST},
+    handlers = { GET, POST },
     auth,
     signIn,
     signOut,
 } = NextAuth({
-    session:{
-        strategy:'jwt',
+    session: {
+        strategy: "jwt",
     },
-    providers:[
+    providers: [
         CredentialsProvider({
-            name:'Credentials',
+            name: "Credentials",
             credentials: {
                 email: {},
                 password: {},
             },
-            async authorize(credentials,req){
+            async authorize(credentials, req) {
                 // throw new Error('hello world')
                 // console.log('credentials is ')
                 // console.log(credentials)
                 // console.log(credentials.email)
                 // console.log(credentials.password)
                 // console.log(req)
-                if (credentials == null)return null;
-                    
-                    const user = {
-                        email:credentials.email,
-                        password:credentials.password,
-                    }
-                    return user;
-                    /*const Admin = {
+                if (credentials == null) return null;
+
+                const user = {
+                    email: credentials.email,
+                    password: credentials.password,
+                };
+                return user;
+                /*const Admin = {
                         email:'admin1@gmail.com',
                         password:'admin@123admin',
                     }*/
 
-                    /*if (credentials.email === Admin.email && credentials.password === Admin.password){
+                /*if (credentials.email === Admin.email && credentials.password === Admin.password){
                         console.log('hello world ')
                         return Admin;
                     }else {
@@ -57,35 +56,36 @@ export const {
                         // redirect(`/sign-in?err=true`);
                         // return null;
                     }*/
-                    
 
-                    // if (user){
-                    //     const isMatch = user?.password === credentials?.password;
+                // if (user){
+                //     const isMatch = user?.password === credentials?.password;
 
-                    //     if(isMatch){
-                    //         return user;
-                    //     }else {
-                    //         throw new Error('Check your password')
-                    //     }
-                    // } else {
-                    // }
-                
-            }
-        })
+                //     if(isMatch){
+                //         return user;
+                //     }else {
+                //         throw new Error('Check your password')
+                //     }
+                // } else {
+                // }
+            },
+        }),
     ],
-    callbacks:{
+    callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
             // console.log('sign-in hello');
             const Admin = {
-                email:'admin1@gmail.com',
-                password:'admin@123admin',
-            }
-            if (user.email === Admin.email && user.password === Admin.password){
+                email: "admin1@gmail.com",
+                password: "admin@123admin",
+            };
+            if (
+                user.email === Admin.email &&
+                user.password === Admin.password
+            ) {
                 // console.log('hello correct sign-in');
                 return true;
-            }else return '/sign-in?err=yes';
+            } else return "/sign-in?err=yes";
         },
-        async session({session}){
+        async session({ session }) {
             return session;
         },
         // async redirect({ url, baseUrl }) {
@@ -95,5 +95,5 @@ export const {
         //         return '/sign-in?err=true';
         //     }else return url;
         // },
-    }
-})
+    },
+});
