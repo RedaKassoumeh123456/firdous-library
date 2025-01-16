@@ -24,7 +24,7 @@ const Footer = () => {
 
     return (
         <footer className="flex flex-col  mt-5 border-t border-primary rounded-t-lg">
-            <div className="flex flex-col md:flex-row w-full px-10 py-5">
+            {/* <div className="flex flex-col md:flex-row w-full px-10 py-5">
                 <div className="w-1/2 flex flex-col">
                     <Image
                         src="https://via.placeholder.com/500x500"
@@ -45,11 +45,11 @@ const Footer = () => {
                         <FooterLink link="/contact" text={"تواصل معنا"} />
                     </div>
                 </div>
-            </div>
-            <div className="bg-secondary py-3">
+            </div> */}
+            <div className="bg-secondary bg-opacity-95 py-3">
                 <p className="text-center text-white ">
                     جميع الحقوق محفوظة لموقع{" "}
-                    <span className="    "> مكتبة الفردوس </span>
+                    <span className="text-primary text-opacity-100"> مكتبة الفردوس </span>
                     &copy; {currentYear}{" "}
                 </p>
             </div>

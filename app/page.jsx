@@ -6,7 +6,7 @@ import Category from "@/models/Category";
 import BookSearchForm from "@/components/BookSearchForm";
 import MainPagePagination from "@/components/MainPagePagination";
 
-const MainPage = async ({ searchParams: { page = 1, pageSize = 9 } }) => {
+const MainPage = async ({ searchParams: { page = 1, pageSize = 3 } }) => {
     await connectDB();
 
     const skip = (page - 1) * pageSize;
